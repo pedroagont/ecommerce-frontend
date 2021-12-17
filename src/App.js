@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from  './contexts/AuthContext'
 
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -11,22 +12,24 @@ import ProductUpdate from './pages/ProductUpdate'
 
 function App() {
   return (
-    <Router>
-        <Routes>
-          <Route path="/" element={ <Dashboard /> } />
+    <AuthProvider>
+      <Router>
+          <Routes>
+            <Route path="/" element={ <Dashboard /> } />
 
-          {/* AuthRoutes */}
-          <Route path="/register" element={ <Register /> } />
-          <Route path="/login" element={ <Login /> } />
-          <Route path="/logout" element={ <Logout /> } />
-                    
-          {/* ProductRoutes */}
-          <Route path="/products" element={ <Dashboard /> } />
-          <Route path="/products/new" element={ <ProductCreate /> } />
-          <Route path="/products/:id" element={ <ProductDetails /> } />
-          <Route path="/products/:id/update" element={ <ProductUpdate /> } />
-        </Routes>
-    </Router>
+            {/* AuthRoutes */}
+            <Route path="/register" element={ <Register /> } />
+            <Route path="/login" element={ <Login /> } />
+            <Route path="/logout" element={ <Logout /> } />
+                      
+            {/* ProductRoutes */}
+            <Route path="/products" element={ <Dashboard /> } />
+            <Route path="/products/new" element={ <ProductCreate /> } />
+            <Route path="/products/:id" element={ <ProductDetails /> } />
+            <Route path="/products/:id/update" element={ <ProductUpdate /> } />
+          </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
