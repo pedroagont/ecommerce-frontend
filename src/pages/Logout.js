@@ -1,11 +1,13 @@
-import NavigationBar from '../components/NavigationBar'
+import { Navigate } from 'react-router-dom'
+import { useAuth } from  '../contexts/AuthContext'
 
 function Logout() {
+  const { logout } = useAuth();
+  logout()
+  alert('Haz cerrado sesión')
+  
   return (
-    <>
-      <NavigationBar />
-      <h1>LOGOUT</h1>
-    </>
+    <Navigate to="/" />
   )
 }
 

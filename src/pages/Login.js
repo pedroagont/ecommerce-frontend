@@ -1,6 +1,10 @@
 import NavigationBar from '../components/NavigationBar'
+import { useAuth } from  '../contexts/AuthContext'
 
-function Login() {
+async function Login() {
+  const { login } = useAuth();
+  console.log(await login('user4@email.com', 'abc1234!'))
+
   return (
     <>
       <NavigationBar />
