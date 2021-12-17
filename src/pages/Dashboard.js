@@ -1,10 +1,11 @@
 import NavigationBar from '../components/NavigationBar'
+import ProductList from '../components/ProductList'
 
 function Dashboard() {
   return (
     <>
       <NavigationBar />
-      <h1>DASHBOARD</h1>
+      <ProductList />
     </>
   )
 }
