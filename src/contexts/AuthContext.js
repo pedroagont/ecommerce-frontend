@@ -15,14 +15,14 @@ function AuthProvider({ children }) {
   
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log(token)
-    if(token){
+    if(!isAuth && token){
       setToken(token)
       const decoded = decode(token)
       setCurrentUser(decoded)
       setIsAuth(true)
     }
-  }, [])
+    return token;
+  }, [isAuth])
 
   function register(email, password){
     const URL_PRODUCTS_API = 'https://ecommerce-backend-g7.herokuapp.com/api/v1/auth/register';
